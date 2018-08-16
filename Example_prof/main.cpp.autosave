@@ -1,0 +1,20 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+struct Cancion{
+    string nombre;
+    string artista;
+    int duracion;
+    string genero;
+    int anio;
+};
+
+int main(int argc, char *argv[])
+{
+    
+    cout << "Hello"; 
+   
+    return (0);
+}
