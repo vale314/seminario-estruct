@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1534876011 source:c:\users\casa\desktop\inni 2018b\seda\persona\main.cpp
+	<iostream>
+	"Persona.h"
+
+1534874650 c:\users\casa\desktop\inni 2018b\seda\persona\persona.h
+	<iostream>
+
+1534876546 c:\users\casa\desktop\inni 2018b\seda\persona\include\persona.h
+	<iostream>
+
+1534876553 source:c:\users\casa\desktop\inni 2018b\seda\persona\src\persona.cpp
+	"Persona.h"
+
