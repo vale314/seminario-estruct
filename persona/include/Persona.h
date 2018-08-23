@@ -11,6 +11,10 @@ public:
     Persona();
     ~Persona();
 
+
+    void hablar(string mensaje);
+    void comer(string comida);
+
     void setNombre(const string &value);
     string getNombre() const;
 

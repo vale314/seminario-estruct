@@ -1,4 +1,4 @@
-#include "Persona.h"
+#include "../include/Persona.h"
 
 Persona::Persona()
 {
@@ -38,3 +38,12 @@ float Persona::getPeso()const
 {
     return peso;
 }
+
+
+ void Persona::hablar(string mensaje){
+    cout << nombre << ":" << mensaje <<endl;
+ }
+
+ void Persona::comer(string comida){
+    cout <<"Comida:" << comida <<endl;
+ }

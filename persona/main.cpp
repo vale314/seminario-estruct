@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Persona.h"
+#include "./src/Persona.cpp"
 
 using namespace std;
 
@@ -13,6 +13,8 @@ int main()
         <<"Nombre: "<<visitante.getNombre()<<endl
         <<"Nacionalidad: "<<visitante.getNacionalidad()<<endl
         <<"Peso: "<<visitante.getPeso()<<"kg."<<endl<<endl;
+        visitante.hablar("Hola Mundo");
+        visitante.comer("Chimichangas");
     return 0;
 }
 
