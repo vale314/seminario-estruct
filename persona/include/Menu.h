@@ -15,14 +15,14 @@ class Menu
             OPCION_BUSCAR,
             OPCION_SALIR
         };
-        /*void agregar();
+        void agregar();
         void consultar();
-        void buscar();*/
+        void buscar();
         void mostrar();
     protected:
 
     private:
-        Persona persona[MAX];
+        Persona personas[MAX];
         int contador;
 };
 
