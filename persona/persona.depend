@@ -12,13 +12,20 @@
 1534876553 source:c:\users\casa\desktop\inni 2018b\seda\persona\src\persona.cpp
 	"Persona.h"
 
-1535045664 source:c:\users\usuario\documents\c++\persona\main.cpp
+1535047386 source:c:\users\usuario\documents\c++\persona\main.cpp
 	<iostream>
 	"./src/Persona.cpp"
+	"Menu.h"
 
 1535045702 c:\users\usuario\documents\c++\persona\src\persona.cpp
 	"../include/Persona.h"
 
 1535045594 c:\users\usuario\documents\c++\persona\include\persona.h
 	<iostream>
+
+1535047279 source:c:\users\usuario\documents\c++\persona\src\menu.cpp
+	"Menu.h"
+
+1535047324 c:\users\usuario\documents\c++\persona\include\menu.h
+	"persona.h"
 
