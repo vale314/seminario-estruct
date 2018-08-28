@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1535479254 source:c:\users\usuario\documents\c++\automovil\main.cpp
+	<iostream>
+	"Conductor.h"
+
+1535479373 c:\users\usuario\documents\c++\automovil\include\conductor.h
+	"Automovil.h"
+
+1535481745 c:\users\usuario\documents\c++\automovil\include\automovil.h
+	<string>
+
+1535481932 source:c:\users\usuario\documents\c++\automovil\src\automovil.cpp
+	"Automovil.h"
+	<iostream>
+
+1535481354 source:c:\users\usuario\documents\c++\automovil\src\conductor.cpp
+	"Conductor.h"
+	"Automovil.h"
+	<iostream>
+

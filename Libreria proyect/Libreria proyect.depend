@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1535144309 source:c:\users\usuario\documents\c++\libreria proyect\main.c
+	<stdio.h>
+	<string.h>
+
