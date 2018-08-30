@@ -1,4 +1,4 @@
-#include "Conductor.h"
+#include "../include/Conductor.h"
 #include "Automovil.h"
 #include <iostream>
 
@@ -42,7 +42,7 @@ void Conductor:: menu(){
             break;
 
             case OpcionCargarGasolina:
-                setCargarGasolina(1);
+                setCargarGasolina();
             break;
 
             case OpcionSalir:
@@ -80,6 +80,7 @@ void Conductor :: setAcelerar(){
         if(!carro.getGasolina()){
             cout << "El Auto Ya No Tiene Gasolina" << endl;
             carro.setVelocidad(0);
+            carro.setEstado(false);
             return;
         }
 
@@ -98,5 +99,10 @@ void Conductor :: setFrenar(){
     }
     cout << "No se puede frenar velocidad 0" << endl;
 }
-void Conductor :: setCargarGasolina(float litros){
+void Conductor :: setCargarGasolina(){
+    float litros;
+    cout << "Cuantos Litros Va A Cargar" <<endl;
+    cin>> litros;
+    carro.gasolina=carro.gasolina+litros;
+    cout << "El Auto Tiene " << carro.gasolina << "Litros De Gas" <<endl;
 }

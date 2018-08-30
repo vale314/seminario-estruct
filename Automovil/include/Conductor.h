@@ -1,6 +1,7 @@
 #ifndef CONDUCTOR_H
 #define CONDUCTOR_H
-#include "Automovil.h"
+#include "./Automovil.h"
+#include <iostream>
 
 class Conductor
 {
@@ -12,7 +13,7 @@ class Conductor
         void setApagar();
         void setAcelerar();
         void setFrenar();
-        void setCargarGasolina(float litros);
+        void setCargarGasolina();
 
         enum Opcion{
             OpcionEnceder=1,

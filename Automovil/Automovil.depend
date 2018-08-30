@@ -18,3 +18,14 @@
 	"Automovil.h"
 	<iostream>
 
+1535607145 source:c:\users\lenovo\documents\proyects\seminario-estruct\automovil\main.cpp
+	<iostream>
+	"./include/Conductor.h"
+
+1535607161 c:\users\lenovo\documents\proyects\seminario-estruct\automovil\include\conductor.h
+	"./Automovil.h"
+	<iostream>
+
+1535600551 c:\users\lenovo\documents\proyects\seminario-estruct\automovil\include\automovil.h
+	<string>
+
