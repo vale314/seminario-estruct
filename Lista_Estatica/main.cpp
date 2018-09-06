@@ -15,6 +15,9 @@ int main()
     //nos permite agrgar un elemento a la lista de forma normal con la funcion operator habilitas ese operador
     enteros[1]= 99;
 
+    // Esto nos ayuda a copiar todo el arreglo a el otro lado con el segundo contrcutor creado
+    enteros=enteros2;
+
     simbolos._insert('A');
 
     cout << "Enteros empty " << enteros._empty() << endl

@@ -19,6 +19,13 @@ public:
     ListaEstatica(): index(0){
     }
 
+    //creamos un segundo constructor donde recibe un elementos de tipo Lista Estatica y ese elemento lo copeamos uno por uno a la lista
+    ListaEstatica<T>(const ListaEstatica<T>& other){
+        for(size_t i=0; i < other.index; i++){
+            _insert(other[i]);
+        }
+    }
+
     bool _empty();
     bool full();
     size_t _size();
