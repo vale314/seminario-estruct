@@ -1,4 +1,13 @@
 # depslib dependency file v1.0
-1446671344 source:c:\users\usuario\documents\seminario-estruct\ vehiculo\main.cpp
+1536259283 source:c:\users\usuario\documents\seminario-estruct\ vehiculo\main.cpp
 	<iostream>
+	"ListaEstatica.h"
+	"Admin.h"
+
+1536258272 c:\users\usuario\documents\seminario-estruct\ vehiculo\include\listaestatica.h
+	<iostream>
+	<stdexcept>
+
+1536259485 c:\users\usuario\documents\seminario-estruct\ vehiculo\include\admin.h
+	"ListaEstatica.h"
 
