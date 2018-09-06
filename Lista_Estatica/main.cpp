@@ -12,6 +12,9 @@ int main()
     enteros._insert(44);
     enteros._insert(59);
 
+    //nos permite agrgar un elemento a la lista de forma normal con la funcion operator habilitas ese operador
+    enteros[1]= 99;
+
     simbolos._insert('A');
 
     cout << "Enteros empty " << enteros._empty() << endl

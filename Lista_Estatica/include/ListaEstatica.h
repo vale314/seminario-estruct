@@ -27,6 +27,7 @@ public:
     void  print();
     size_t _find(const T& elem);
     void _remove(size_t idx);
+    T& operator[](size_t idx);
 
     private:
         static const size_t CAPACITY = 1000;
@@ -91,6 +92,18 @@ void ListaEstatica<T>::_remove(size_t idx){
         }
     }
     index--;
+}
+
+
+/*No funciona para regresar un elemento del tipo template*/
+template <typename T>
+T& ListaEstatica<T>::operator[](size_t idx){
+    if(_empty())
+        throw invalid_argument("[] on empty list");
+    if(idx >= index)
+        throw invalid_argument("[] on invalid porsition");
+
+    return elements[idx];
 }
 
 #endif // LISTAESTATICA_H

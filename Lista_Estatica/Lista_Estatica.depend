@@ -1,9 +1,9 @@
 # depslib dependency file v1.0
-1536086084 source:c:\users\usuario\documents\seminario-estruct\lista_estatica\main.cpp
+1536255225 source:c:\users\usuario\documents\seminario-estruct\lista_estatica\main.cpp
 	<iostream>
 	"ListaEstatica.h"
 
-1536086157 c:\users\usuario\documents\seminario-estruct\lista_estatica\include\listaestatica.h
+1536255303 c:\users\usuario\documents\seminario-estruct\lista_estatica\include\listaestatica.h
 	<iostream>
 	<stdexcept>
 
