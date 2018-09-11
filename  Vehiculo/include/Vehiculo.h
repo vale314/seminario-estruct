@@ -19,6 +19,8 @@ class Vehiculo
         string getMarca();
         string getDescripcion();
 
+        friend ostream& operator <<(ostream& os,const Vehiculo &obj);
+
     protected:
 
     private:

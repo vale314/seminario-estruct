@@ -1,7 +1,7 @@
 #include "Admin.h"
 #include <iostream>
 #include <typeinfo>
-
+#include <stdlib.h>
 using namespace std;
 
 Admin::Admin()
@@ -17,6 +17,7 @@ Admin::~Admin()
 void Admin::menu(){
     int opcion;
     do{
+    system("cls");
     cout << MenuComprar << " Comprar" << endl
         << MenuVender << " Vender" <<endl
         << MenuConsultar << " Consultar" <<endl
@@ -51,9 +52,9 @@ void Admin::comprar(){
 
     cin.ignore();
     cout << "Ingrese la marca" << endl;
-    cin >> vehiculoS.marca;
+    getline(cin,vehiculoS.marca);
     cout << "Ingrese la Descipcion" << endl;
-    cin >> vehiculoS.desc;
+    getline(cin,vehiculoS.desc);
     cout << "Ingrese la anio" << endl;
     cin >> vehiculoS.anio;
 
@@ -66,10 +67,9 @@ void Admin::comprar(){
 
 void Admin::consultar(){
     for(int i=0; i<vehiculos._size();i++){
-        cout << "Marca " << vehiculos[i].getMarca() <<endl
-             << "Modelo " << vehiculos[i].getModelo() <<endl
-             << "Descripcion " << vehiculos[i].getDescripcion() <<endl;
+        cout << vehiculos[i]<<endl;
     }
+    system("pause");
 }
 
 void Admin::vender(){
