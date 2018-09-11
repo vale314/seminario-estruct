@@ -34,8 +34,12 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/Admin.h" />
 		<Unit filename="include/ListaEstatica.h" />
+		<Unit filename="include/Vehiculo.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Admin.cpp" />
+		<Unit filename="src/Vehiculo.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
