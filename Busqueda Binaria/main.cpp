@@ -13,6 +13,19 @@ int main()
     //primer elemento mayor a el que estoy buscando
     u= upper_bound(array,array+12,33);
 
+
+
+        string audi ="Audi";
+        string aston = "Aston martin";
+
+        if(audi < aston)
+            cout << "Audi menor que Aston marrtin" <<endl;
+        else
+            cout << "Aston martin  menor que Audi" << endl;
+
+
+
+    /*
     if(*l==33)
         cout << "encontrado" << endl;
     else
@@ -21,6 +34,7 @@ int main()
 
     cout << "Inferioir: "<<distance(array,l) << endl<< *l<< endl
         <<"Superior" << distance(array,u) << endl<<*u<<endl;
+    */
     return 0;
 }
 
