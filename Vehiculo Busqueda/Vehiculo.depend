@@ -1,0 +1,85 @@
+# depslib dependency file v1.0
+1536687283 source:c:\users\usuario\documents\seminario-estruct\ vehiculo\main.cpp
+	<iostream>
+	"ListaEstatica.h"
+	"Admin.h"
+	"Vehiculo.h"
+
+1536685876 c:\users\usuario\documents\seminario-estruct\ vehiculo\include\listaestatica.h
+	<iostream>
+	<stdexcept>
+
+1536685876 c:\users\usuario\documents\seminario-estruct\ vehiculo\include\admin.h
+	<string>
+	"ListaEstatica.h"
+	"Vehiculo.h"
+
+1536266193 source:c:\users\lenovo\documents\proyects\seminario-estruct\ vehiculo\main.cpp
+	<iostream>
+	"ListaEstatica.h"
+	"Admin.h"
+	"Vehiculo.h"
+
+1536264085 c:\users\lenovo\documents\proyects\seminario-estruct\ vehiculo\include\listaestatica.h
+	<iostream>
+	<stdexcept>
+
+1536607849 c:\users\lenovo\documents\proyects\seminario-estruct\ vehiculo\include\admin.h
+	<string>
+	"ListaEstatica.h"
+	"Vehiculo.h"
+
+1536608102 source:c:\users\lenovo\documents\proyects\seminario-estruct\ vehiculo\src\admin.cpp
+	"Admin.h"
+	<iostream>
+	<typeinfo>
+
+1536608210 source:c:\users\lenovo\documents\proyects\seminario-estruct\ vehiculo\src\vehiculo.cpp
+	"Vehiculo.h"
+
+1536607151 c:\users\lenovo\documents\proyects\seminario-estruct\ vehiculo\include\vehiculo.h
+	<string>
+	<ListaEstatica.h>
+
+1536687756 source:c:\users\usuario\documents\seminario-estruct\ vehiculo\src\admin.cpp
+	"Admin.h"
+	<iostream>
+	<typeinfo>
+	<stdlib.h>
+
+1536687145 c:\users\usuario\documents\seminario-estruct\ vehiculo\include\vehiculo.h
+	<string>
+	<ListaEstatica.h>
+
+1536687168 source:c:\users\usuario\documents\seminario-estruct\ vehiculo\src\vehiculo.cpp
+	"Vehiculo.h"
+
+1536687283 source:c:\users\usuario\documents\seminario-estruct\vehiculo busqueda\main.cpp
+	<iostream>
+	"ListaEstatica.h"
+	"Admin.h"
+	"Vehiculo.h"
+
+1538677382 c:\users\usuario\documents\seminario-estruct\vehiculo busqueda\include\listaestatica.h
+	<iostream>
+	<stdexcept>
+
+1538678699 c:\users\usuario\documents\seminario-estruct\vehiculo busqueda\include\admin.h
+	<string>
+	"ListaEstatica.h"
+	"Vehiculo.h"
+	<algorithm>
+
+1536687145 c:\users\usuario\documents\seminario-estruct\vehiculo busqueda\include\vehiculo.h
+	<string>
+	<ListaEstatica.h>
+
+1536687168 source:c:\users\usuario\documents\seminario-estruct\vehiculo busqueda\src\vehiculo.cpp
+	"Vehiculo.h"
+
+1538675169 source:c:\users\usuario\documents\seminario-estruct\vehiculo busqueda\src\admin.cpp
+	"Admin.h"
+	<iostream>
+	<typeinfo>
+	<stdlib.h>
+

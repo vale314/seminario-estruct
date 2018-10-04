@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1538677681 source:c:\users\usuario\documents\seminario-estruct\ordenamiento\main.cpp
+	<iostream>
+	<algorithm>
+
