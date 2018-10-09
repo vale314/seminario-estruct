@@ -1,0 +1,16 @@
+generallizacion de burbuja u ordenamiento por insercion.
+comienza ordenando pares lejanos entre si  y posteriormente reduce de forma progresia la distancia entre los elementos comprados
+
+brecha <- n/2
+mientras brecha > 0 hacer
+	desde i	<- brecha hasta n-1 hacer
+		temp <- A[i]
+		j<-i
+		mientras j >= brecha y A[j-brecha] > temp hacer 
+			A[j] <- A[j-brecha]
+			j <- j-brecha
+		A[j] <- temp
+	brecha <- brecha/2
+
+
+Tarea Prueba de escritorio

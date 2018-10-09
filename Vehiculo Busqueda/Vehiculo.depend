@@ -83,3 +83,33 @@
 	<typeinfo>
 	<stdlib.h>
 
+1538682603 source:c:\users\lenovo\documents\proyects\seminario-estruct\vehiculo busqueda\main.cpp
+	<iostream>
+	"ListaEstatica.h"
+	"Admin.h"
+	"Vehiculo.h"
+
+1538682603 c:\users\lenovo\documents\proyects\seminario-estruct\vehiculo busqueda\include\listaestatica.h
+	<iostream>
+	<stdexcept>
+
+1539065850 c:\users\lenovo\documents\proyects\seminario-estruct\vehiculo busqueda\include\admin.h
+	<string>
+	"ListaEstatica.h"
+	"Vehiculo.h"
+	<algorithm>
+	<vector>
+
+1539064168 c:\users\lenovo\documents\proyects\seminario-estruct\vehiculo busqueda\include\vehiculo.h
+	<string>
+	<ListaEstatica.h>
+
+1539064132 source:c:\users\lenovo\documents\proyects\seminario-estruct\vehiculo busqueda\src\vehiculo.cpp
+	"Vehiculo.h"
+
+1539065792 source:c:\users\lenovo\documents\proyects\seminario-estruct\vehiculo busqueda\src\admin.cpp
+	"Admin.h"
+	<iostream>
+	<typeinfo>
+	<stdlib.h>
+

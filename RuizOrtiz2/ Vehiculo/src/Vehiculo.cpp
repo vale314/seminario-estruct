@@ -25,19 +25,10 @@ string Vehiculo::getDescripcion(){
     return descripcion;
 }
 
-string Vehiculo::getMarca() const{
+string Vehiculo::getMarca(){
     return marca;
 }
 
 int Vehiculo::getModelo(){
     return modelo;
 }
-
-ostream& operator <<(ostream& os,const Vehiculo &obj){
-    os <<"Marca: " << obj.marca << endl
-       << "Modelo: " << obj.modelo <<endl
-       << "Descripcion: " <<obj.descripcion;
-
-       return os;
-}
-

@@ -16,14 +16,9 @@ class Vehiculo
         void setDescripcion(string descripcion);
 
         int getModelo();
-        string getMarca() const;
+        string getMarca();
         string getDescripcion();
 
-        friend ostream& operator <<(ostream& os,const Vehiculo &obj);
-        friend bool operator< (const Vehiculo& lhs, const Vehiculo& rhs)
-        {
-           return lhs.getMarca() < rhs.getMarca();
-        }
     protected:
 
     private:

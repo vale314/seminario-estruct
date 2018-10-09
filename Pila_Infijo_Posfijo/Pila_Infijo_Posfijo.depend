@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1537468115 source:c:\users\lenovo\documents\proyects\seminario-estruct\pila_infijo_posfijo\main.cpp
+	<iostream>
+	<stack>
+	<iostream>
+	<string>
+	<typeinfo>
+

@@ -23,6 +23,7 @@ void Admin::menu(){
         << MenuConsultar << " Consultar" <<endl
         << BusquedaLineal << " Busqueda Lineal" <<endl
         << Ordenar  << " Ordenar"<< endl
+        << BusquedaBinaria << " Busqueda Binaria" <<endl
         << MenuSalir << " Salir" <<endl;
     cin>>opcion;
         switch(opcion){
@@ -45,13 +46,15 @@ void Admin::menu(){
                 ordenar();
             break;
             case 6:
+                busquedaBinaria();
+            break;
+            case 7:
 
             break;
-
             default:
                 cout << "Opcion INCORRECTA" <<endl;
         }
-    }while(opcion !=6);
+    }while(opcion !=7);
 }
 
 
@@ -71,12 +74,12 @@ void Admin::comprar(){
     vehiculo1.setDescripcion(vehiculoS.desc);
     vehiculo1.setModelo(vehiculoS.anio);
 
-    vehiculos._insert(vehiculo1);
+    vehiculos.push_back(vehiculo1);
 }
 
 void Admin::consultar(){
-    for(int i=0; i<vehiculos._size();i++){
-        cout << vehiculos[i]<<endl;
+    for(int i =0; i < vehiculos.size();i++){
+        cout << vehiculos[i] <<endl;
     }
     system("pause");
 }
@@ -85,7 +88,7 @@ void Admin::vender(){
     int num;
     cout << "Ingrese La Posicion Que Desea Quitar " << endl;
     cin >> num;
-    vehiculos._remove(num);
+    vehiculos.erase(vehiculos.begin()+num);
 }
 
 void Admin::busquedaLineal(){
@@ -95,7 +98,7 @@ void Admin::busquedaLineal(){
     cout << "Ingrese Su Marca "<<endl;
     cin.ignore();
     getline(cin,busqueda);
-    while(i<vehiculos._size()){
+    while(i<vehiculos.size()){
         if(vehiculos[i].getMarca()==busqueda){
             f=true;
             break;
@@ -110,11 +113,19 @@ void Admin::busquedaLineal(){
     system("pause");
 }
 
-bool Admin:: functionOrdenar(Vehiculo& a, Vehiculo& b){
-    cout<< "a " << a<<endl << "b " << b<<endl;
-    return true;
-}
 void Admin::ordenar(){
-    sort (vehiculos, vehiculos._size(), functionOrdenar());
+    std::sort (vehiculos.begin(), vehiculos.end(),functionOrdenar);
 }
 
+void Admin:: busquedaBinaria(){
+    string busqueda;
+    Vehiculo vehiculo1;
+    cout << "Ingrese Su Marca "<<endl;
+    cin.ignore();
+    getline(cin,busqueda);
+    vehiculo1.setMarca(busqueda);
+    //Vehiculo *lower_bounder;
+    low=std::lower_bound(vehiculos.begin(),vehiculos.end(),vehiculo1);
+    //cout <<  *lower_bounder << endl;
+    //cout << low ;
+}

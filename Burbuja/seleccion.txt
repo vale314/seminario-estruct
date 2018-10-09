@@ -1,0 +1,17 @@
+comieza revisando la lista entera para entonara el elemento mas pequeño e intercambiarlo con el primero, poniendolo en su posicion final.
+Posteriormente se revisa la lista partir del segundo elemento para encontarar el menor de los restantes n-1 elementos e intercambiarlo 
+con el que se encuentre en la segunda posicion.
+
+e el algoritmo contiuna de forma similar hasta ordenas la lista completa.
+
+
+desde i <- 0 hasta n-2 hacer
+	min <- i
+	desde j <- i +1 hasta n-1 hacer
+		si A[j] < A[min] hacer
+			min <- j
+	intercambiar A[i] con A[min]
+
+Tarea Prubeas de escritorio
+
+Proxima clase ordenamiento recursivo
