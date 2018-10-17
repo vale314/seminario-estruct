@@ -1,0 +1,43 @@
+dado un arreglo (o secuencia)  a ordenar,
+quicksort  reacomoda este arrglo en dos partes para que todos los elemntos en el sub-Arrgelo izquierdo sean menores o iguales a un valor especifico(llamado pivote) y los
+elementos en el sub-arreglo derecho sean mayores al pivote. El pivote es colocado entre las dos partes. Con ello todos los elementos a la izquierda del  valor pivote son 
+menores que todos los elementos a la deracha del pivote, por lo tanto el valor pivote esta en su posicion correcta. A repetir el proceso en las dos partes, todo
+queda ordenado.
+
+
+codigo:
+		l y r son los sub-indices de cada uno de los. extremos
+	si l<r
+		S <- Particion(A[l...r])
+		Quicksort(A[l...s -1])
+		Quicksort(A[s+l...r])
+
+
+Particion:
+
+	se recorre el sub-arreglo desde ambos extremos comparando el elemento ene el sub-arreglo con el pivote.
+
+	El recorrido de izquierda a dercha denotado con el indice i(revisa algoritmo) comienza en el segundo elemnto.
+	Como se requieren elementos menores al pivote en la parte izquierda de sub-arreglo, este recorrido salta los elementos
+	que son menores que el pivote  y se detene cuando encuentra el primer elemento mayor o igual al pivote.
+
+	El recorrido de derecha a izquierda denotado con el indice j (revisar algoritmo) comienza con el ultimo elemento del sub
+	-arreglo. Como se quieren elementos mayores que el pivote en la parte derecha del sub-arreglo, este recorrido salta
+	los elementos que son mayores que el pivote y se detiene al encontar el primer elemento menor o igual al pivote.
+
+
+Codigo:
+	p<-A[l]
+	i<-l; j<-r+1
+	repetir
+		mientras A[i] <= p hacer i<-i+1
+		mientras A[j] >= p hacer j<-j-1
+		intercambiar (A[i],A[j])
+	mientras i<j
+	intercambiar(A[i],A[j])
+	intercambiar(A[l],A[j])
+	regresar j
+
+ocupa menos memoria
+
+array menores A GRANDES

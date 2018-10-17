@@ -1,0 +1,4 @@
+Valentine|Alejandro|2018|23
+Rogers|Fernando|2018|58
+Pedro|Martinez|2019|100
+Perro|puto|2019|35

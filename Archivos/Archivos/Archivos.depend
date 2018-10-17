@@ -1,0 +1,52 @@
+# depslib dependency file v1.0
+1539712577 source:c:\users\usuario\documents\seminario-estruct\archivos\main.cpp
+	<iostream>
+	"Album.h"
+	<ostream>
+
+1539710751 source:c:\users\usuario\documents\seminario-estruct\archivos\src\song.cpp
+	"Song.h"
+
+1539714634 c:\users\usuario\documents\seminario-estruct\archivos\include\song.h
+	<ostream>
+	<string>
+	<sstream>
+
+1539714798 source:c:\users\usuario\documents\seminario-estruct\archivos\src\album.cpp
+	"Album.h"
+
+1539714017 c:\users\usuario\documents\seminario-estruct\archivos\include\album.h
+	"Song.h"
+	"ListaEstatica.h"
+	<fstream>
+
+1536685876 c:\users\usuario\documents\seminario-estruct\archivos\include\listaestatica.h
+	<iostream>
+	<stdexcept>
+
+1539707912 source:c:\users\lenovo\documents\proyects\seminario-estruct\archivos\archivos\main.cpp
+	<iostream>
+	"Album.h"
+	<ostream>
+
+1539729667 source:c:\users\lenovo\documents\proyects\seminario-estruct\archivos\archivos\src\song.cpp
+	"../include/Song.h"
+
+1539727310 source:c:\users\lenovo\documents\proyects\seminario-estruct\archivos\archivos\src\album.cpp
+	"../include/Album.h"
+
+1539707914 c:\users\lenovo\documents\proyects\seminario-estruct\archivos\archivos\include\album.h
+	"Song.h"
+	"ListaEstatica.h"
+	<fstream>
+
+1539727480 c:\users\lenovo\documents\proyects\seminario-estruct\archivos\archivos\include\song.h
+	<ostream>
+	<string>
+	<sstream>
+	<iostream>
+
+1539707916 c:\users\lenovo\documents\proyects\seminario-estruct\archivos\archivos\include\listaestatica.h
+	<iostream>
+	<stdexcept>
+

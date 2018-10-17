@@ -14,7 +14,7 @@
 	"ListaEstatica.h"
 	"Vehiculo.h"
 
-1536266193 source:c:\users\lenovo\documents\proyects\seminario-estruct\ vehiculo\main.cpp
+1538682602 source:c:\users\lenovo\documents\proyects\seminario-estruct\ vehiculo\main.cpp
 	<iostream>
 	"ListaEstatica.h"
 	"Admin.h"
@@ -29,15 +29,16 @@
 	"ListaEstatica.h"
 	"Vehiculo.h"
 
-1536608102 source:c:\users\lenovo\documents\proyects\seminario-estruct\ vehiculo\src\admin.cpp
+1538682602 source:c:\users\lenovo\documents\proyects\seminario-estruct\ vehiculo\src\admin.cpp
 	"Admin.h"
 	<iostream>
 	<typeinfo>
+	<stdlib.h>
 
-1536608210 source:c:\users\lenovo\documents\proyects\seminario-estruct\ vehiculo\src\vehiculo.cpp
+1538682602 source:c:\users\lenovo\documents\proyects\seminario-estruct\ vehiculo\src\vehiculo.cpp
 	"Vehiculo.h"
 
-1536607151 c:\users\lenovo\documents\proyects\seminario-estruct\ vehiculo\include\vehiculo.h
+1538682602 c:\users\lenovo\documents\proyects\seminario-estruct\ vehiculo\include\vehiculo.h
 	<string>
 	<ListaEstatica.h>
 

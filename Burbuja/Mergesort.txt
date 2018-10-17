@@ -1,0 +1,43 @@
+Este prdenamiento es un ejemplo perfecto de una apliacion exitosa de la tecnica divide y vencera.
+
+Ordena un arreglo A[0...n-1] al dividirlo en dos mitades A[0..n/2-1] y A[n/2...n-1] ordenando cada una de ellas recursivamente
+y despues mesclando los dos areglos pequeños ya ordenados en uno solo ordenado.
+
+Codigo:
+
+	CODIGO  PARA ORDENAR UNA LISTA Y PARTIRLA
+
+	Si n> 1
+		p <- reordenar_abajo ((n-1)/2)
+		copiar A[0---p] a B[0...p]
+		Si modulo(n,2) = 0
+			copiar A[p+1...n-1] a C[0...p]
+		Sino
+			copiar A[p+1...n-1] a C[0...p-1]
+		Mergesort(B)
+		Mergesort(C)
+		Merge(B,C,A)
+
+El resultado  de la operacio es la creacion de una secuenacia ordenada que contega todos los elementos de las primera dos 
+secuencias ordenadas
+
+	cODIGO PARA UNIR LAS DOS LISTAS YA ORDENADAS
+
+codigo:
+
+	i<-0; j <-0; k<-0
+	mientras i < p y j < q hacer
+			//se evalua cada elemento de la lista
+		Si B[i] <= C[j]
+			A[k] <-B[i]; i<-i+1
+		sino
+			A[k] <-C[j]; j<-j+1
+		k<-k+1
+		//se evalua cual lista fue la que se termino
+	si i=p
+		Copiar C[j...q -1] a A[k...p + q-1]
+	sino
+		Copiar B[i...p-1] a A[k...p+q-1]
+
+
+OCUPA MUCHA MEMORIA

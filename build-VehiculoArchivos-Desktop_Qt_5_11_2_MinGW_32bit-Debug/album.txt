@@ -1,0 +1,4 @@
+Audi|elegante|2050
+Ford|chido|2018
+Mercee|de|1998
+kaka|chidas|2010
