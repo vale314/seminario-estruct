@@ -10,4 +10,6 @@ SOURCES += main.c \
 HEADERS += \
     game.h \
     player.h \
-    console.h
+    console.h \
+    player.h \
+    player.h

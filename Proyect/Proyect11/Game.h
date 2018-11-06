@@ -6,8 +6,8 @@
 #include <vector>
 #include <stdexcept>
 
-#include "./player.h"
-#include "./console.h"
+#include "./Player.h"
+
 
 using namespace  std;
 
@@ -17,12 +17,12 @@ class Game
 private:
     vector<Player> partida;
     vector<Player>::iterator it;
+    int max;
 
     enum{
         menuCrearPartida=1,
         menuCargarPartida,
         menuEliminarPartida,
-        menuPlayer,
         menuExit
     };
     struct playerEst{

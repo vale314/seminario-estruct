@@ -1,4 +1,4 @@
-#include "player.h"
+#include "Player.h"
 
 
 Player::Player()
@@ -9,9 +9,7 @@ Player::Player()
 void Player::menu()
 {
     int opc;
-    Console c;
     do{
-        c.clearScreen();
         cout<<"\t\t\tMenu Player"<< endl;
         cout<<menuInfo<<" MenuInfo"<<endl
            <<menuExit << " Salir"<<endl;
@@ -21,7 +19,7 @@ void Player::menu()
             info();
             break;
         case menuExit:
-            cout<<"Gracias"<<endl<<"Desarollador Valentine"<<endl;
+            cout<<"Gracias"<<endl;
             break;
         default:
             break;
