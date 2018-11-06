@@ -6,7 +6,8 @@
 #include <vector>
 #include <stdexcept>
 
-#include "./Player.h"
+#include "Player.h"
+#include "Pekemon.h"
 
 
 using namespace  std;
@@ -15,6 +16,7 @@ using namespace  std;
 class Game
 {
 private:
+
     vector<Player> partida;
     vector<Player>::iterator it;
     int max;
@@ -25,8 +27,12 @@ private:
         menuEliminarPartida,
         menuExit
     };
+    enum{
+
+    };
     struct playerEst{
         string nombre;
+        string nombreP;
     };
 
 public:
@@ -36,6 +42,7 @@ public:
     void cargarPartida(size_t idx);
     void eliminarPartida(size_t idx);
     size_t mostrarPartidas();
+    void mostrarTiposPeekemons();
 };
 
 #endif // GAME_H

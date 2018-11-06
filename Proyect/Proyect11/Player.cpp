@@ -4,12 +4,14 @@
 Player::Player()
 {
     monedas=1000;
+
 }
 
 void Player::menu()
 {
     int opc;
     do{
+        system("cls");
         cout<<"\t\t\tMenu Player"<< endl;
         cout<<menuInfo<<" MenuInfo"<<endl
            <<menuExit << " Salir"<<endl;

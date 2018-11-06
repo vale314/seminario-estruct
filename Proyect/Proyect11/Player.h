@@ -3,6 +3,8 @@
 
 #define PLAYER_H
 #include <iostream>
+#include <list>
+#include <Pekemon.h>
 
 using namespace  std;
 
@@ -11,9 +13,18 @@ class Player
 private:
    string nombre;
    int monedas;
+   list<Pekemon> pekemon;
+
     enum{
         menuInfo=1,
         menuExit
+    };
+
+    enum{
+        Bulbasaur=1,
+        Squirtle,
+        Charizard,
+        Pikachu
     };
 public:
     Player();
