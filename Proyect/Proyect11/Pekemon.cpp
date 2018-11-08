@@ -3,9 +3,8 @@
 Pekemon::Pekemon(types t,string nameS)
 {
     tipo = t;
-    //llenarMovimientos();
+    llenarMovimientos();
     cout<<"Pokemon: "<< t <<endl;
-
     name=nameS;
     level = 5;
     hp = 15;
@@ -72,4 +71,88 @@ unsigned int Pekemon::getExperience() const
 void Pekemon::setExperience(unsigned int value)
 {
     experience = value;
+}
+
+void Pekemon::llenarMovimientos()
+{
+
+  ifstream archivo("tipos/"+returnTypes()+".txt");
+  string linea;
+  if(!archivo.is_open()){
+      cout <<" No se pudo abrir el archivo";
+      system("pause");
+      return;
+  }
+  while(getline(archivo,linea)){
+      string aux;
+      stringstream stream(linea);
+      getline(stream,aux,' ');
+      Move moveAux(aux,10,10);
+      moves.push_front(moveAux);
+      cout<<aux<<endl;
+  }
+  system("pause");
+}
+
+string Pekemon::returnTypes()
+{
+    switch (tipo) {
+    case acero:
+        return("acero");
+        break;
+    case agua:
+        return("agua");
+        break;
+    case dragon:
+        return("dragon");
+        break;
+    case electrico:
+        return("electrico");
+        break;
+    case fantasma:
+        return("fantasma");
+        break;
+    case fuego:
+        return("fuego");
+        break;
+    case hada:
+        return("hada");
+        break;
+    case hielo:
+        return("hielo");
+        break;
+    case hierba:
+        return("hierba");
+        break;
+    case insecto:
+        return("insecto");
+        break;
+    case normal:
+        return("normal");
+        break;
+    case oscuro:
+        return("oscuro");
+        break;
+    case pelea:
+        return("pelea");
+        break;
+    case psiquico:
+        return("psiquico");
+        break;
+    case roca:
+        return("roca");
+        break;
+    case tierra:
+        return("tierra");
+        break;
+    case venenoso:
+        return("venenoso");
+        break;
+    case volador:
+        return("volador");
+        break;
+    default:
+        return("normal");
+        break;
+    }
 }

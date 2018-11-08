@@ -54,7 +54,7 @@ void Game::crearPartida()
     aux.setNombre(playerE.nombre);
 
     escogerPeekemons(&playerE.nombreP);
-    Pekemon auxPek(Pekemon::types::acero,playerE.nombreP);
+    Pekemon auxPek(Pekemon::types::normal,playerE.nombreP);
     aux.setPekemones(auxPek);
     partida.push_back(aux);
     max++;

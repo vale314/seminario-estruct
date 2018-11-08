@@ -7,7 +7,7 @@ using namespace std;
 class Move
 {
 public:
-    Move();
+    Move(string nameV,unsigned int maxV,unsigned int avalibleV);
 private:
     string name;
     unsigned int max; //Cantidad máxima de veces que se puede realizar el movimiento

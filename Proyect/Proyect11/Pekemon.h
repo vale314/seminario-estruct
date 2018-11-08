@@ -4,6 +4,11 @@
 #include <list>
 #include <string>
 #include <iostream>
+#include<ostream>
+#include <string>
+#include <sstream>
+#include <fstream>
+
 
 using namespace std;
 
@@ -49,7 +54,8 @@ public:
     unsigned int getExperience() const;
     void setExperience(unsigned int value);
 
-
+    void llenarMovimientos();
+    string returnTypes();
 
 private:
 

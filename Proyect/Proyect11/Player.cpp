@@ -14,11 +14,15 @@ void Player::menu()
         system("cls");
         cout<<"\t\t\tMenu Player"<< endl;
         cout<<menuInfo<<" MenuInfo"<<endl
+           <<menuPekemones<<" MenuPekemones"<<endl
            <<menuExit << " Salir"<<endl;
         cin>>opc;
         switch (opc) {
         case menuInfo:
             info();
+            break;
+        case menuPekemones:
+            getPekemones();
             break;
         case menuExit:
             cout<<"Gracias"<<endl;
@@ -36,7 +40,6 @@ void Player::info()
     cout<<"\t\t Info Player"<< endl;
     cout<<" Nombre: "<< nombre<<endl
        <<" Monedas: "<< monedas<<endl;
-    getPekemones();
     system("pause");
 }
 
@@ -54,6 +57,7 @@ void Player::getPekemones()
             i++;
         }
     }
+    system("pause");
 }
 
 void Player::setPekemones(const Pekemon &value)
