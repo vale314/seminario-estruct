@@ -36,8 +36,31 @@ void Player::info()
     cout<<"\t\t Info Player"<< endl;
     cout<<" Nombre: "<< nombre<<endl
        <<" Monedas: "<< monedas<<endl;
+    getPekemones();
     system("pause");
 }
+
+void Player::getPekemones()
+{
+    size_t  i=0;
+
+    if(pekemones.empty())
+        cout<<"La Lista Esta Vacia"<<endl;
+    if(pekemones.size()>0){
+        it = pekemones.begin();
+        while(i!=pekemones.size()){
+            cout<<"Pekemon: "<<it->getName()<<endl;
+            it++;
+            i++;
+        }
+    }
+}
+
+void Player::setPekemones(const Pekemon &value)
+{
+    pekemones.push_front(value);
+}
+
 
 
 string Player::getNombre() const

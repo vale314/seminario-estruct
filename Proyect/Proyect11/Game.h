@@ -16,7 +16,12 @@ using namespace  std;
 class Game
 {
 private:
-
+    enum{
+       PekBulbasaur=1,
+       PekSquirtle,
+       PekCharizard,
+       PekPikachu
+    };
     vector<Player> partida;
     vector<Player>::iterator it;
     int max;
@@ -42,7 +47,7 @@ public:
     void cargarPartida(size_t idx);
     void eliminarPartida(size_t idx);
     size_t mostrarPartidas();
-    void mostrarTiposPeekemons();
+    void escogerPeekemons(string*);
 };
 
 #endif // GAME_H

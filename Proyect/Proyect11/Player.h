@@ -13,7 +13,8 @@ class Player
 private:
    string nombre;
    int monedas;
-   list<Pekemon> pekemon;
+   list<Pekemon> pekemones;
+   list<Pekemon>::iterator it;
 
     enum{
         menuInfo=1,
@@ -31,7 +32,8 @@ public:
     void menu();
     void info();
 
-
+    void getPekemones();
+    void setPekemones(const Pekemon &value);
     string getNombre() const;
     void setNombre(const string &value);
     int getModendas() const;

@@ -1,12 +1,12 @@
 #include "Pekemon.h"
 
-Pekemon::Pekemon(types t)
+Pekemon::Pekemon(types t,string nameS)
 {
     tipo = t;
     //llenarMovimientos();
     cout<<"Pokemon: "<< t <<endl;
 
-    name="";
+    name=nameS;
     level = 5;
     hp = 15;
     maxHp = 15;

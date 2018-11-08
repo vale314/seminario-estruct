@@ -43,6 +43,7 @@ void Game::menu()
 
 void Game::crearPartida()
 {
+
     if(max>=3)
         throw invalid_argument("Instance max 3");
     Player aux;
@@ -52,42 +53,38 @@ void Game::crearPartida()
     getline(cin,playerE.nombre);
     aux.setNombre(playerE.nombre);
 
-    cout<<"Seleccione el Pekeemon"<<endl;
-//    //vector<Pekemon::types> it;
-//    //it=Pekemon::types::acero;
-////    for ( int i = Pekemon::types::acero; i != Pekemon::types::volador; i++ ){
-////        Pekemon foo = static_cast<Pekemon>(i);
-////    }
-//    for ( int fooInt =acero; fooInt != volador; fooInt++ )
-//    {
-//       types foo = static_cast<types>(fooInt);
-//       cout<<foo<<endl;
-//    }
-    //mostrarTiposPeekemons();
-    cin>>playerE.nombreP;
+    escogerPeekemons(&playerE.nombreP);
+    Pekemon auxPek(Pekemon::types::acero,playerE.nombreP);
+    aux.setPekemones(auxPek);
     partida.push_back(aux);
     max++;
 }
 
-void Game::mostrarTiposPeekemons(){
-//    cout<<"acero"<< Pekemon::acero<<endl
-//        <<"agua"<<Pekemon::agua <<endl
-//        <<"dragon"<<Pekemon::dragon <<endl
-//        <<"electrico"<<Pekemon::electrico <<endl
-//        <<"fantasma"<<Pekemon::fantasma <<endl
-//        <<"fuego"<<Pekemon::fuego<<endl
-//        <<"hada"<<Pekemon::hada <<endl
-//        <<"hielo"<<Pekemon::hielo <<endl
-//        <<"hierba"<<Pekemon::hierba <<endl
-//        <<"insecto"<<Pekemon::insecto <<endl
-//        <<"normal"<<Pekemon::normal <<endl
-//        <<"oscuro"<<Pekemon::oscuro <<endl
-//        <<"pelea"<<Pekemon::pelea <<endl
-//        <<"psiquico"<<Pekemon::psiquico <<endl
-//        <<"roca"<<Pekemon::roca <<endl
-//        <<"tierra"<<Pekemon::tierra <<endl
-//        <<"venenoso"<<Pekemon::venenoso <<endl
-//        <<"volador"<<Pekemon::volador <<endl;
+void Game::escogerPeekemons(string *pek){
+    int opc;
+    do{
+        cout<<PekBulbasaur<<" Bulbasaur"<<endl
+            <<PekSquirtle<<" Squirtle"<<endl
+            <<PekCharizard<<" Charizard"<<endl
+            <<PekPikachu<<" Pikachu"<<endl;
+        cin>>opc;
+        switch(opc){
+            case PekBulbasaur:
+            *pek="Bulbasaur";
+            break;
+        case PekSquirtle:
+            *pek="Squirtle";
+            break;
+        case PekCharizard:
+            *pek="Charizard";
+            break;
+        case PekPikachu:
+            *pek="Pikachu";
+            break;
+        default:
+            cout<<"Opcion Incorrecta"<<endl;
+        }
+    }while(opc>PekPikachu);
 }
 
 void Game::cargarPartida(size_t idx)

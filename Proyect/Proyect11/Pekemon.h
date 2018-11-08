@@ -30,7 +30,7 @@ public:
        venenoso,
        volador
    };
-    Pekemon(types t);
+    Pekemon(types t,string);
     string getName() const;
     void setName(const string &value);
 
