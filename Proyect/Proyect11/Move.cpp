@@ -6,3 +6,10 @@ Move::Move(string nameV,unsigned int maxV,unsigned int availableV)
     max=maxV;
     available=availableV;
 }
+
+void Move::showMoves()
+{
+    cout<<"name: "<<name<<endl
+        <<"Max: "<<max<<endl
+        <<"available: "<<available<<endl;
+}

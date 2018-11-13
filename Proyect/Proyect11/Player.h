@@ -34,6 +34,8 @@ public:
     void info();
 
     void getPekemones();
+    void getPekemones(int *);
+    void getPekemon(int);
     void setPekemones(const Pekemon &value);
     string getNombre() const;
     void setNombre(const string &value);

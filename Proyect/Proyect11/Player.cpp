@@ -10,6 +10,7 @@ Player::Player()
 void Player::menu()
 {
     int opc;
+    int iPek;
     do{
         system("cls");
         cout<<"\t\t\tMenu Player"<< endl;
@@ -22,7 +23,8 @@ void Player::menu()
             info();
             break;
         case menuPekemones:
-            getPekemones();
+            getPekemones(&iPek);
+            getPekemon(iPek);
             break;
         case menuExit:
             cout<<"Gracias"<<endl;
@@ -52,12 +54,37 @@ void Player::getPekemones()
     if(pekemones.size()>0){
         it = pekemones.begin();
         while(i!=pekemones.size()){
-            cout<<"Pekemon: "<<it->getName()<<endl;
+            cout<< i <<"  Pekemon: "<<it->getName()<<endl;
             it++;
             i++;
         }
     }
     system("pause");
+}
+
+void Player::getPekemones(int *iPek)
+{
+    size_t  i=0;
+
+    if(pekemones.empty())
+        cout<<"La Lista Esta Vacia"<<endl;
+    if(pekemones.size()>0){
+        it = pekemones.begin();
+        while(i!=pekemones.size()){
+            cout<< i <<"  Pekemon: "<<it->getName()<<endl;
+            it++;
+            i++;
+        }
+    }
+    cin>>*iPek;
+    system("pause");
+}
+
+void Player::getPekemon(int iPek)
+{
+    it=pekemones.begin();
+    advance(it,iPek);
+    it->getMenu();
 }
 
 void Player::setPekemones(const Pekemon &value)

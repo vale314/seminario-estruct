@@ -57,6 +57,8 @@ public:
     void llenarMovimientos();
     string returnTypes();
 
+    void getMenu();
+
 private:
 
     types tipo;
@@ -67,6 +69,7 @@ private:
     unsigned int attack;
     unsigned int experience;
     list<Move> moves;
+    list<Move>::iterator it;
 
 
 };

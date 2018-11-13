@@ -89,7 +89,6 @@ void Pekemon::llenarMovimientos()
       getline(stream,aux,' ');
       Move moveAux(aux,10,10);
       moves.push_front(moveAux);
-      cout<<aux<<endl;
   }
   system("pause");
 }
@@ -155,4 +154,25 @@ string Pekemon::returnTypes()
         return("normal");
         break;
     }
+}
+
+void Pekemon::getMenu()
+{
+    size_t i;
+    int showAB=0;
+    cout<<"Tipo: "<<tipo<<endl
+        <<"Name: "<<name<<endl
+        <<"Level: "<<level<<endl
+        <<"Hp: "<<hp<<endl
+        <<"maxHp:"<<maxHp<<endl
+        <<"Atack: "<<attack<<endl
+        <<"Experience: "<<experience<<endl;
+    cout<<"0 Regreasar 1 Mostrar Ataques "<<endl;
+    cin>>showAB;
+    if(showAB==1){
+        for (it = moves.begin(); it != moves.end(); ++it){
+            it->showMoves();
+        }
+    }
+    system("pause");
 }
