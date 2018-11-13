@@ -19,7 +19,12 @@ private:
     enum{
         menuInfo=1,
         menuPekemones,
+        menuTienda,
         menuExit
+    };
+    enum{
+        menuTiendaShow=1
+        menuTiendaExit
     };
 
     enum{
@@ -41,6 +46,8 @@ public:
     void setNombre(const string &value);
     int getModendas() const;
     void setModendas(int value);
+    void menuTienda();
+    void menuTiendaShow();
 
 };
 #endif // PLAYER_H

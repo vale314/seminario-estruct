@@ -16,6 +16,7 @@ void Player::menu()
         cout<<"\t\t\tMenu Player"<< endl;
         cout<<menuInfo<<" MenuInfo"<<endl
            <<menuPekemones<<" MenuPekemones"<<endl
+           <<menuTienda<<" MenuTienda"<<endl
            <<menuExit << " Salir"<<endl;
         cin>>opc;
         switch (opc) {
@@ -25,6 +26,9 @@ void Player::menu()
         case menuPekemones:
             getPekemones(&iPek);
             getPekemon(iPek);
+            break;
+        case menuTienda:
+
             break;
         case menuExit:
             cout<<"Gracias"<<endl;
@@ -112,4 +116,21 @@ int Player::getModendas() const
 void Player::setModendas(int value)
 {
     monedas = value;
+}
+
+void Player::menuTienda()
+{
+    int opc;
+    cout<<menuTiendaShow<<"showProdructs"<<endl;
+    cin>>opc;
+    switch (opc) {
+    case menuTiendaShow:
+        menuTiendaShow();
+        break;
+    default:
+        break;
+    }
+}
+void Player::menuTiendaShow(){
+
 }

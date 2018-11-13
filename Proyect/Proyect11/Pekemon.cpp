@@ -77,6 +77,7 @@ void Pekemon::llenarMovimientos()
 {
 
   ifstream archivo("tipos/"+returnTypes()+".txt");
+  cout<<returnTypes()<<endl;
   string linea;
   if(!archivo.is_open()){
       cout <<" No se pudo abrir el archivo";
