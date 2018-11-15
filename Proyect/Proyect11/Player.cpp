@@ -5,6 +5,16 @@ Player::Player()
 {
     monedas=1000;
 
+    ifstream archivo("items.txt");
+       string linea;
+       if(!archivo.is_open()){
+           cout <<" No se pudo abrir el archivo";
+           return;
+       }
+       while(getline(archivo,linea)){
+           Item i(linea);
+           productos.push_front(i);
+       }
 }
 
 void Player::menu()
@@ -28,7 +38,7 @@ void Player::menu()
             getPekemon(iPek);
             break;
         case menuTienda:
-
+             menuTiendaFunc();
             break;
         case menuExit:
             cout<<"Gracias"<<endl;
@@ -118,19 +128,29 @@ void Player::setModendas(int value)
     monedas = value;
 }
 
-void Player::menuTienda()
+void Player::menuTiendaFunc()
 {
     int opc;
-    cout<<menuTiendaShow<<"showProdructs"<<endl;
-    cin>>opc;
-    switch (opc) {
-    case menuTiendaShow:
-        menuTiendaShow();
-        break;
-    default:
-        break;
-    }
+    do{
+        system("cls");
+        cout<<menuTiendaShow<<" showProdructs"<<endl;
+        cout<<menuTiendaExit<< " ExitMenu" <<endl;
+        cin>>opc;
+        switch (opc) {
+        case menuTiendaShow:
+            menuTiendaShowFunc();
+            break;
+        case menuTiendaExit:
+            break;
+        default:
+            break;
+        }
+    }while(opc != menuTiendaExit);
 }
-void Player::menuTiendaShow(){
+void Player::menuTiendaShowFunc(){
 
+    cout<<setw(15)<< "Name"<<setw(15)<<"Price"<<setw(15)<<"value"<<setw(15)<<"Descriptions"<<setw(15)<<"stock"<< endl;
+    for(itP=productos.begin();itP!=productos.end();itP++)
+        cout<<*itP;
+    system("pause");
 }

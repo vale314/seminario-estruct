@@ -8,7 +8,7 @@ using namespace std;
 class Tienda
 {
 private:
-    list<Item> productos;
+    list<Item> Productos;
     list<Item>::iterator it;
 public:
     Tienda();

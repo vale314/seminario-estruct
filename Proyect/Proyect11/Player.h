@@ -5,6 +5,7 @@
 #include <iostream>
 #include <list>
 #include <Pekemon.h>
+#include "Item.h"
 
 using namespace  std;
 
@@ -16,6 +17,10 @@ private:
    list<Pekemon> pekemones;
    list<Pekemon>::iterator it;
 
+
+   list<Item> productos;
+   list<Item>::iterator itP;
+
     enum{
         menuInfo=1,
         menuPekemones,
@@ -23,7 +28,7 @@ private:
         menuExit
     };
     enum{
-        menuTiendaShow=1
+        menuTiendaShow=1,
         menuTiendaExit
     };
 
@@ -46,8 +51,8 @@ public:
     void setNombre(const string &value);
     int getModendas() const;
     void setModendas(int value);
-    void menuTienda();
-    void menuTiendaShow();
+    void menuTiendaFunc();
+    void menuTiendaShowFunc();
 
 };
 #endif // PLAYER_H

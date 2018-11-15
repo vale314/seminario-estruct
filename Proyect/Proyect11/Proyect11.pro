@@ -9,13 +9,11 @@ SOURCES += \
     Player.cpp \
     Pekemon.cpp \
     Move.cpp \
-    Item.cpp \
-    Tienda.cpp
+    Item.cpp
 
 HEADERS += \
     Game.h \
     Player.h \
     Pekemon.h \
     Move.h \
-    Item.h \
-    Tienda.h
+    Item.h
