@@ -12,6 +12,7 @@
 
 using namespace std;
 
+
 class Pekemon
 {
 public:
@@ -36,9 +37,10 @@ public:
        volador
    };
     Pekemon(types t,string);
+    Pekemon(const string &linea);
     string getName() const;
     void setName(const string &value);
-
+    virtual types returnTypes(int tipo);
     unsigned int getLevel() const;
     void setLevel(unsigned int value);
 
@@ -59,6 +61,8 @@ public:
 
     void getMenu();
 
+    void setTipo(const types &value);
+
 private:
 
     types tipo;
@@ -70,7 +74,7 @@ private:
     unsigned int experience;
     list<Move> moves;
     list<Move>::iterator it;
-
+    friend ostream& operator <<(ostream& os, const Pekemon& obj);
 
 };
 

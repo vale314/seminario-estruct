@@ -13,6 +13,27 @@ Pekemon::Pekemon(types t,string nameS)
     experience = 20;
 }
 
+Pekemon::Pekemon(const string &linea)
+{
+        string aux;
+        stringstream stream(linea);
+
+        getline(stream,aux, '|');
+        setName(aux);
+        getline(stream,aux, '|');
+        setTipo(returnTypes(stoi(aux)));
+        getline(stream,aux, '|');
+        setLevel(stoi(aux));
+        getline(stream,aux, '|');
+        setHp(stoi(aux));
+        getline(stream,aux, '|');
+        setMaxHp(stoi(aux));
+        getline(stream,aux, '|');
+        setAttack(stoi(aux));
+        getline(stream,aux, '|');
+        setExperience(stoi(aux));
+}
+
 string Pekemon::getName() const
 {
     return name;
@@ -22,6 +43,70 @@ void Pekemon::setName(const string &value)
 {
     name = value;
 }
+
+Pekemon::types Pekemon::returnTypes(int tipo)
+{
+    switch (tipo) {
+    case acero:
+        return acero;
+
+    case agua:
+        return agua;
+
+    case dragon:
+        return dragon;
+
+    case electrico:
+        return electrico;
+
+    case fantasma:
+        return fantasma;
+
+    case fuego:
+        return fuego;
+
+    case hada:
+        return hada;
+
+    case hielo:
+        return hielo;
+
+    case hierba:
+        return hierba;
+
+    case insecto:
+        return insecto;
+
+    case normal:
+        return normal;
+
+    case oscuro:
+        return oscuro;
+
+    case pelea:
+        return pelea;
+
+    case psiquico:
+        return psiquico;
+
+    case roca:
+        return roca;
+
+    case tierra:
+        return tierra;
+
+    case venenoso:
+        return venenoso;
+
+    case volador:
+        return volador;
+
+    default:
+        return normal;
+
+    }
+}
+
 
 unsigned int Pekemon::getLevel() const
 {
@@ -81,7 +166,6 @@ void Pekemon::llenarMovimientos()
   string linea;
   if(!archivo.is_open()){
       cout <<" No se pudo abrir el archivo";
-      system("pause");
       return;
   }
   while(getline(archivo,linea)){
@@ -91,7 +175,6 @@ void Pekemon::llenarMovimientos()
       Move moveAux(aux,10,10);
       moves.push_front(moveAux);
   }
-  system("pause");
 }
 
 string Pekemon::returnTypes()
@@ -176,4 +259,14 @@ void Pekemon::getMenu()
         }
     }
     system("pause");
+}
+
+void Pekemon::setTipo(const Pekemon::types &value)
+{
+    tipo=value;
+}
+
+ostream& operator <<(ostream& os, const Pekemon& obj){
+    os << obj.name << "|"<<obj.tipo<<"|"<<obj.level<<"|"<<obj.hp<<"|"<<obj.maxHp<<"|"<<obj.attack<<"|"<<obj.experience<<endl;
+    return os;
 }

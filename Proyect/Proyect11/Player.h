@@ -6,6 +6,12 @@
 #include <list>
 #include <Pekemon.h>
 #include "Item.h"
+#include<ostream>
+#include <string>
+#include <sstream>
+#include <stdio.h>
+#include <cstdint>
+#include <dirent.h>
 
 using namespace  std;
 
@@ -20,6 +26,9 @@ private:
 
    list<Item> productos;
    list<Item>::iterator itP;
+   list<Item> backpack;
+   list<Item>::iterator itB;
+
 
     enum{
         menuInfo=1,
@@ -29,6 +38,8 @@ private:
     };
     enum{
         menuTiendaShow=1,
+        menuTiendaSell,
+        menuTiendaShowBack,
         menuTiendaExit
     };
 
@@ -40,9 +51,9 @@ private:
     };
 public:
     Player();
+    Player(const string& linea);
     void menu();
     void info();
-
     void getPekemones();
     void getPekemones(int *);
     void getPekemon(int);
@@ -53,6 +64,24 @@ public:
     void setModendas(int value);
     void menuTiendaFunc();
     void menuTiendaShowFunc();
+    void menuTiendaShowFunc(int *);
+    void menuTiendaComprar(int *);
+    bool searchBackpack();
+    void sellProducts(int *);
+    void showBackpack(int *);
+    bool searchTienda();
+    void showBackpack();
+    friend ostream& operator <<(ostream& os, const Player& obj);
+    void guardar();
+
+    void guardarBackpack();
+    void deleteAll();
+    void deleteAllP();
+    void cargar();
+    void actualizarPlayer();
+    void cargarTienda();
+    void ActualizarTienda();
+
 
 };
 #endif // PLAYER_H

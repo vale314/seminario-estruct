@@ -22,6 +22,17 @@ public:
     Item(string,unsigned int,unsigned int,string,unsigned int);
     Item(const string &);
     friend ostream& operator<<(std::ostream&, const Item&);
+    bool shop(unsigned int);
+    unsigned int getValue();
+
+    void shopStock(int);
+    string getName();
+    unsigned int getPrice();
+    unsigned int getStock();
+    void setStock(unsigned int);
+    friend ostream& operator <(ostream& os, const Item& obj);
+    void printf();
+    void setStockV(unsigned int);
 };
 
 #endif // ITEM_H
