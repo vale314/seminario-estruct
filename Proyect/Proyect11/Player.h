@@ -12,6 +12,8 @@
 #include <stdio.h>
 #include <cstdint>
 #include <dirent.h>
+#include <cstdlib>
+#include <ctime>
 
 using namespace  std;
 
@@ -22,18 +24,20 @@ private:
    int monedas;
    list<Pekemon> pekemones;
    list<Pekemon>::iterator it;
+   list<Pekemon>::iterator itPActual;
 
 
    list<Item> productos;
    list<Item>::iterator itP;
    list<Item> backpack;
    list<Item>::iterator itB;
-
+   Pekemon auxPek;
 
     enum{
         menuInfo=1,
         menuPekemones,
         menuTienda,
+        menuExplore,
         menuExit
     };
     enum{
@@ -49,6 +53,35 @@ private:
         Charizard,
         Pikachu
     };
+
+    enum{
+      menuEncuentroPelea=1,
+      menuEncuentroItem,
+      menuEncuentroCambiar,
+      menuEncuentroRun
+    };
+
+    enum{
+      menuExploreNadaInicio=0,
+      menuExploreNadaFin=32,
+      menuExploreDineroInicio=33,
+      menuExploreDineroFin=65,
+      menuExploreEncuentroInicio=66,
+      menuExploreEncuentroFin=99
+    };
+
+    enum{
+      itemPekeBall=0,
+      itemGreatBall,
+      itemUltraBall,
+      itemMaxPotion,
+      itemHyperPotion,
+      itemSuperPotion,
+      itemPotion,
+      itemHpUp,
+      itemProtein
+    };
+
 public:
     Player();
     Player(const string& linea);
@@ -82,6 +115,25 @@ public:
     void cargarTienda();
     void ActualizarTienda();
 
+    void menuExploreF();
+    void exploreNada();
+    void exploreDinero();
+    double RandNum (double min, double max);
+    int RandInt (int min, int max);
+    void exploreEncuentro();
+
+    void encuentroPelea();
+
+    void encuentroItem();
+    int returnNameItem(string name);
+    void usarItem(int *opc);
+    void ataquePekemonSalvaje();
+    void usarPosition(list<Item>::iterator itL);
+    void usarProtein();
+    bool usarBall(int opc);
+
+    void encuentroCambiar();
+    void encuentroRun();
 
 };
 #endif // PLAYER_H

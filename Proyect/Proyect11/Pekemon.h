@@ -36,8 +36,11 @@ public:
        venenoso,
        volador
    };
+    Pekemon();
     Pekemon(types t,string);
     Pekemon(const string &linea);
+    Pekemon(types t,string nameS,unsigned int levelP,int hpP,unsigned int maxHpP,unsigned int attackP, unsigned int exp);
+
     string getName() const;
     void setName(const string &value);
     virtual types returnTypes(int tipo);
@@ -62,6 +65,8 @@ public:
     void getMenu();
 
     void setTipo(const types &value);
+
+    Pekemon& operator= (const Pekemon &pekemon);
 
 private:
 

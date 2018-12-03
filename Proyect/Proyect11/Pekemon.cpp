@@ -1,5 +1,17 @@
 #include "Pekemon.h"
 
+Pekemon::Pekemon()
+{
+    tipo = normal;
+    llenarMovimientos();
+    name="Nombre";
+    level = 5;
+    hp = 15;
+    maxHp = 15;
+    attack = 10;
+    experience = 20;
+}
+
 Pekemon::Pekemon(types t,string nameS)
 {
     tipo = t;
@@ -11,6 +23,19 @@ Pekemon::Pekemon(types t,string nameS)
     maxHp = 15;
     attack = 10;
     experience = 20;
+}
+
+Pekemon::Pekemon(types t,string nameS,unsigned int levelP,int hpP,unsigned int maxHpP,unsigned int attackP, unsigned int exp)
+{
+    tipo = t;
+    llenarMovimientos();
+    cout<<"Pokemon: "<< t <<endl;
+    name=nameS;
+    level = levelP;
+    hp = hpP;
+    maxHp = maxHpP;
+    attack = attackP;
+    experience = exp;
 }
 
 Pekemon::Pekemon(const string &linea)
@@ -264,6 +289,19 @@ void Pekemon::getMenu()
 void Pekemon::setTipo(const Pekemon::types &value)
 {
     tipo=value;
+}
+
+Pekemon &Pekemon::operator=(const Pekemon &pekemon)
+{
+    tipo = normal;
+    llenarMovimientos();
+    name=pekemon.getName();
+    level = pekemon.getLevel();
+    hp = pekemon.getHp();
+    maxHp = pekemon.maxHp;
+    attack = pekemon.getAttack();
+    experience = pekemon.getExperience();
+    return *this;
 }
 
 ostream& operator <<(ostream& os, const Pekemon& obj){

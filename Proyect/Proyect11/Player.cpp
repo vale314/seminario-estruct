@@ -3,6 +3,7 @@
 
 Player::Player()
 {
+
     monedas=1000;
     ifstream archivo("items.txt");
        string linea;
@@ -107,6 +108,252 @@ void Player::ActualizarTienda()
     }
 }
 
+void Player::menuExploreF()
+{
+    int opc = rand()%99;
+
+      switch (opc) {
+        case menuExploreNadaInicio ... menuExploreNadaFin:
+          exploreNada();
+          break;
+        case menuExploreDineroInicio ... menuExploreDineroFin:
+          exploreDinero();
+          break;
+        case menuExploreEncuentroInicio ... menuExploreEncuentroFin:
+          exploreEncuentro();
+          break;
+        default:
+            break;
+      }
+}
+
+void Player::exploreNada()
+{
+     system("cls");
+     cout<<"No ha pasado nada"<<endl;
+     system("pause");
+}
+
+void Player::exploreDinero()
+{
+    system("cls");
+    int opc = rand()% 1000 +1;
+    cout<<"Te Encontraste: "<<opc<<endl;
+    system("pause");
+    setModendas(monedas+opc);
+}
+
+double Player::RandNum(double min, double max)
+{
+    return min + (max - min) * ((double)rand()
+                                / (double)RAND_MAX);
+}
+
+int Player::RandInt(int min, int max)
+{
+    return (int)RandNum((double)min + 0.000001,
+                           (double)max + 0.999999);
+}
+
+void Player::exploreEncuentro()
+{
+    system("cls");
+    itPActual=pekemones.begin();
+    cout<<"Te Encontraste Un Pokemon"<<endl;
+    //Falta pekemon random function
+
+    const int newLevel = RandInt(itPActual->getLevel()-2,itPActual->getLevel()+1);
+    const unsigned int newMaxHp = RandInt(itPActual->getMaxHp()-2,itPActual->getMaxHp()+1);
+    const int newHp = newMaxHp;
+    const unsigned  int newAttack = RandInt(itPActual->getAttack()-2,itPActual->getAttack()+1);
+    const unsigned int newExp = RandInt(itPActual->getExperience()-2,itPActual->getExperience()+1);
+    cout<<newLevel<<endl<<newHp<<endl<<newMaxHp<<endl<<newAttack<<endl<<newExp<<endl;
+    Pekemon auxPek1(Pekemon::types::normal,"Pikachu",newLevel,newHp,newMaxHp,newAttack,newExp);
+    auxPek=auxPek1;
+
+    cout<<"Su nombre es: "<<auxPek.getName()<<endl
+        <<"Su nivel es: "<< auxPek.getLevel()<<endl
+        <<"Su Hp es: "<< auxPek.getHp()<<endl
+        <<"Su Attack es: "<< auxPek.getAttack()<<endl
+        <<"Su Experiencia es"<< auxPek.getExperience()<<endl;
+
+    bool win;
+    win=false;
+    unsigned int opc;
+    do{
+        cout<<"Pelea: "<<menuEncuentroPelea<<endl
+            <<"Selecionar Item: "<<menuEncuentroItem<<endl
+            <<"Cambiar Pekemon: "<<menuEncuentroCambiar<<endl
+            <<"Run: "<<menuEncuentroRun<<endl;
+        cin>>opc;
+        switch (opc) {
+        case menuEncuentroPelea:
+                encuentroPelea();
+            break;
+        case menuEncuentroItem:
+                encuentroItem();
+            break;
+        case menuEncuentroCambiar:
+                encuentroCambiar();
+            break;
+        case menuEncuentroRun:
+                encuentroRun();
+            break;
+        default:
+            cout<<"Selecciona una opcion correcta"<<endl;
+            system("pause");
+            break;
+        }
+    }while(opc!=menuEncuentroRun);
+
+}
+
+void Player::encuentroPelea()
+{
+    cout<<"Tu Estas En Combate"<<endl;
+    system("pause");
+}
+
+void Player::encuentroItem()
+{
+    int opc;
+    cout<<"Tu vas elegir un item"<<endl;
+    showBackpack(&opc);
+    usarItem(&opc);
+    system("pause");
+}
+
+int Player::returnNameItem(string name)
+{
+    if(name=="Peke Ball")
+        return itemPekeBall;
+    if(name== "Great Ball")
+        return itemGreatBall;
+    if(name== "Ultra Ball")
+        return itemUltraBall;
+    if(name=="Max Potion")
+        return itemMaxPotion;
+    if(name=="Hyper Potion")
+        return itemHyperPotion;
+    if(name=="Super Potion")
+        return itemSuperPotion;
+    if(name == "Potion")
+        return itemPotion;
+    if(name== "Hp Up")
+        return itemHpUp;
+    if(name=="Protein")
+        return itemProtein;
+    throw invalid_argument("Error Name Item");
+}
+
+void Player::usarItem(int *opc)
+{
+    if(*opc==-1)
+        throw invalid_argument("No Hay Productos");
+    itB=backpack.begin();
+    for(int i=0;i<*opc;i++){
+        itB++;
+    }
+
+    cout<<itB->getName()<<endl;
+
+    int item;
+    bool atrapado;
+    atrapado=false;
+    item=returnNameItem(itB->getName());
+    switch (item) {
+    case itemPekeBall:
+            atrapado=usarBall(item);
+        break;
+    case itemGreatBall:
+            atrapado=usarBall(item);
+        break;
+    case itemUltraBall:
+            atrapado=usarBall(item);
+        break;
+    case itemMaxPotion:
+        usarPosition(itB);
+        break;
+    case itemHyperPotion:
+        usarPosition(itB);
+        break;
+    case itemSuperPotion:
+        usarPosition(itB);
+        break;
+    case itemPotion:
+        usarPosition(itB);
+        break;
+    case itemHpUp:
+        usarPosition(itB);
+        break;
+    case itemProtein:
+        usarProtein();
+        break;
+    default:
+        break;
+    }
+    if(atrapado){
+        cout<<"Felicidades atrapaste a el pokemon"<<endl;
+        pekemones.push_back(auxPek);
+        return;
+    }
+    cout<<"Golpe De Pokemon Contrario"<<endl;
+    ataquePekemonSalvaje();
+}
+
+void Player::ataquePekemonSalvaje()
+{
+    itPActual->setHp(itPActual->getHp()-auxPek.getAttack());
+}
+
+
+void Player::usarPosition(list<Item>::iterator itL)
+{
+    if((itPActual->getHp()+itL->getValue())>itPActual->getMaxHp())
+        itPActual->setHp(itPActual->getMaxHp());
+    itPActual->setHp(itPActual->getHp()+itL->getValue());
+}
+
+void Player::usarProtein()
+{
+    cout<<"Subiendo Ataque +: "<< 25 <<endl;
+    system("pause");
+}
+
+bool Player::usarBall(int opc)
+{
+    int new_number;
+    new_number = RandInt(0,100);
+
+    bool atrape;
+    atrape=false;
+    if(opc==itemPekeBall)
+        return (new_number<=50);
+    if(opc==itemGreatBall)
+        return (new_number<=75);
+    if(opc==itemUltraBall)
+        return (new_number<=90);
+    return false;
+}
+
+void Player::encuentroCambiar()
+{
+    int opc;
+    cout<<"Tu vas a cambiar de pekemon"<<endl;
+    getPekemones(&opc);
+    itPActual=pekemones.begin();
+    advance(itPActual,opc);
+    cout<<"Nuevo Pekemon Elegido: "<<itPActual->getName()<<endl;
+    system("pause");
+    ataquePekemonSalvaje();
+}
+
+void Player::encuentroRun()
+{
+    cout<<"Tu estas Corriendo"<<endl;
+    system("pause");
+}
+
 void Player::menu()
 {
     int opc;
@@ -117,6 +364,7 @@ void Player::menu()
         cout<<menuInfo<<" MenuInfo"<<endl
            <<menuPekemones<<" MenuPekemones"<<endl
            <<menuTienda<<" MenuTienda"<<endl
+           <<menuExplore<< "MenuExplore"<<endl
            <<menuExit << " Salir"<<endl;
         cin>>opc;
         switch (opc) {
@@ -129,6 +377,9 @@ void Player::menu()
             break;
         case menuTienda:
              menuTiendaFunc();
+            break;
+        case menuExplore:
+            menuExploreF();
             break;
         case menuExit:
             cout<<"Gracias"<<endl;
