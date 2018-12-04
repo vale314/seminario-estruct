@@ -1,0 +1,1 @@
+Potion|200|20|Restaura 20 de energía al pekemon|2

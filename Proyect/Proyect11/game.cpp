@@ -172,7 +172,7 @@ void Game::leerString(const string &linea){
 
     getline(stream,aux, '|');
     nombres.push_back(aux);
-    cout<<aux<<endl;
+
 }
 
 void Game::cargar()
