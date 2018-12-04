@@ -167,7 +167,6 @@ void Player::exploreEncuentro()
     const int newHp = newMaxHp;
     const unsigned  int newAttack = RandInt(itPActual->getAttack()-2,itPActual->getAttack()+1);
     const unsigned int newExp = RandInt(itPActual->getExperience()-2,itPActual->getExperience()+1);
-    cout<<newLevel<<endl<<newHp<<endl<<newMaxHp<<endl<<newAttack<<endl<<newExp<<endl;
     Pekemon auxPek1(Pekemon::types::normal,"Pikachu",newLevel,newHp,newMaxHp,newAttack,newExp);
     auxPek=auxPek1;
 
@@ -177,41 +176,119 @@ void Player::exploreEncuentro()
         <<"Su Attack es: "<< auxPek.getAttack()<<endl
         <<"Su Experiencia es"<< auxPek.getExperience()<<endl;
 
-    bool win;
-    win=false;
+    bool ocultar;
+    ocultar=false;
+    bool tienesVida;
+    tienesVida=false;
     unsigned int opc;
+    bool cambio;
+    cambio=true;
     do{
-        cout<<"Pelea: "<<menuEncuentroPelea<<endl
-            <<"Selecionar Item: "<<menuEncuentroItem<<endl
-            <<"Cambiar Pekemon: "<<menuEncuentroCambiar<<endl
-            <<"Run: "<<menuEncuentroRun<<endl;
+        tienesVida=validarHpTu();
+        if(!ocultar&&tienesVida){
+           cout<<"Cambiar Pekemon: "<<menuEncuentroCambiar<<endl
+               <<"Selecionar Item: "<<menuEncuentroItem<<endl
+               <<"Run: "<<menuEncuentroRun<<endl
+               <<"Pelea: "<<menuEncuentroPelea<<endl;
+        }else{
+            cout<<"Cambiar Pekemon: "<<menuEncuentroCambiar<<endl
+                <<"Selecionar Item: "<<menuEncuentroItem<<endl
+                <<"Run: "<<menuEncuentroRun<<endl;
+        }
         cin>>opc;
         switch (opc) {
         case menuEncuentroPelea:
-                encuentroPelea();
+               if(validarHpEnemigo())
+                  ocultar=encuentroPelea();
             break;
         case menuEncuentroItem:
                 encuentroItem();
             break;
         case menuEncuentroCambiar:
-                encuentroCambiar();
+                cambio=encuentroCambiar();
             break;
         case menuEncuentroRun:
                 encuentroRun();
-            break;
+                return;
         default:
             cout<<"Selecciona una opcion correcta"<<endl;
             system("pause");
             break;
         }
-    }while(opc!=menuEncuentroRun);
-
+    }while((opc!=menuEncuentroRun)||!cambio||!validarWin());
+    if(validarWin()||!cambio)
+        pekemonCentroMenu();
 }
 
-void Player::encuentroPelea()
+bool Player::encuentroPelea()
 {
+
+    if(!itPActual->getHp())
+        return true;
+    cout<<"Su nombre es: "<<auxPek.getName()<<endl
+        <<"Su nivel es: "<< auxPek.getLevel()<<endl
+        <<"Su Hp es: "<< auxPek.getHp()<<endl
+        <<"Su Attack es: "<< auxPek.getAttack()<<endl
+        <<"Su Experiencia es"<< auxPek.getExperience()<<endl;
+
     cout<<"Tu Estas En Combate"<<endl;
+    if(itPActual->getAttack())
+        //rebajar el atque con el que se hizo
+        itPActual->setAttack(itPActual->getAttack()-1);
+    else{
+        cout<<"Ya No Tienes Ataques"<<endl;
+        return true;
+    }
+
+    if((int)((auxPek.getHp()-itPActual->getAttack()))>0)
+        auxPek.setHp(auxPek.getHp()-itPActual->getAttack());
+    else{
+        auxPek.setHp(0);
+        cout<<"Haz Ganado!"<<endl;
+        encuentroGanaste();
+        return true;
+    }
+    ataquePekemonSalvaje();
     system("pause");
+    return false;
+}
+
+void Player::encuentroGanaste()
+{
+    itPActual->setExperience(itPActual->getExperience()+(itPActual->getExperience()/2));
+    if(itPActual->getExperience()>=pow(2,itPActual->getLevel()+1)){
+        itPActual->setHp(itPActual->getHp()+(itPActual->getHp()/2));
+        itPActual->setMaxHp(itPActual->getMaxHp()+(itPActual->getMaxHp()/2));
+        itPActual->setAttack(itPActual->getAttack()+(itPActual->getAttack()/2));
+        itPActual->setLevel(itPActual->getLevel()+1);
+    }
+}
+
+bool Player::validarHpEnemigo()
+{
+    if(auxPek.getHp())
+        return true;
+    else
+        return false;
+}
+
+bool Player::validarHpTu()
+{
+    if(itPActual->getHp())
+        return true;
+    else{
+        cout<<"Ya No Tienes Vida"<<endl;
+        system("pause");
+    }
+    return false;
+}
+
+bool Player::validarWin()
+{
+    if(auxPek.getHp()>0)
+        return false;
+    else
+        return true;
 }
 
 void Player::encuentroItem()
@@ -248,8 +325,10 @@ int Player::returnNameItem(string name)
 
 void Player::usarItem(int *opc)
 {
-    if(*opc==-1)
-        throw invalid_argument("No Hay Productos");
+    if(*opc==-1){
+        cout<<"No Hay Productos"<<endl;
+        return;
+    }
     itB=backpack.begin();
     for(int i=0;i<*opc;i++){
         itB++;
@@ -303,7 +382,10 @@ void Player::usarItem(int *opc)
 
 void Player::ataquePekemonSalvaje()
 {
-    itPActual->setHp(itPActual->getHp()-auxPek.getAttack());
+    if((int)(itPActual->getHp()-auxPek.getAttack())>0)
+        itPActual->setHp(itPActual->getHp()-auxPek.getAttack());
+    else
+        itPActual->setHp(0);
 }
 
 
@@ -311,7 +393,8 @@ void Player::usarPosition(list<Item>::iterator itL)
 {
     if((itPActual->getHp()+itL->getValue())>itPActual->getMaxHp())
         itPActual->setHp(itPActual->getMaxHp());
-    itPActual->setHp(itPActual->getHp()+itL->getValue());
+    else
+        itPActual->setHp(itPActual->getHp()+itL->getValue());
 }
 
 void Player::usarProtein()
@@ -336,21 +419,61 @@ bool Player::usarBall(int opc)
     return false;
 }
 
-void Player::encuentroCambiar()
+bool Player::encuentroCambiar()
 {
     int opc;
-    cout<<"Tu vas a cambiar de pekemon"<<endl;
-    getPekemones(&opc);
-    itPActual=pekemones.begin();
-    advance(itPActual,opc);
+    int again;
+    cout<<"Tu vas a cambiar de pekemon"<<endl
+        <<"Selecciona un Pekemon Con vida de lo contraio saldras de la pela "<<endl;
+    do{
+        getPekemones(&opc);
+        itPActual=pekemones.begin();
+        advance(itPActual,opc);
+        again=0;
+        if(!itPActual->getHp()){
+            cout<<"El pekemon selecionado no tiene vida Para Seleccionar otro 1 Para Salir 0"<<endl;
+            cin>>again;
+            if(!again)
+                return false;
+        }
+    }while(again);
+
     cout<<"Nuevo Pekemon Elegido: "<<itPActual->getName()<<endl;
     system("pause");
     ataquePekemonSalvaje();
+    return true;
 }
 
 void Player::encuentroRun()
 {
     cout<<"Tu estas Corriendo"<<endl;
+    system("pause");
+}
+
+void Player::pekemonCentroMenu()
+{
+    int opc;
+    cout<<"Bienvenido a el centro pekemon"<<endl;
+    cout<<"Desea recuperar a todos sus pekemones 1 si 0 no"<<endl;
+    cin>>opc;
+    if(!opc)
+        return;
+    pekemonCentroRecargarTodo();
+}
+
+void Player::pekemonCentroRecargarTodo()
+{
+    size_t i=0;
+    if(pekemones.empty())
+        cout<<"La Lista Esta Vacia"<<endl;
+    if(pekemones.size()>0){
+        it = pekemones.begin();
+        while(i!=pekemones.size()){
+            it->setHp(it->getMaxHp());
+            it++;
+            i++;
+        }
+    }
     system("pause");
 }
 
@@ -365,6 +488,7 @@ void Player::menu()
            <<menuPekemones<<" MenuPekemones"<<endl
            <<menuTienda<<" MenuTienda"<<endl
            <<menuExplore<< "MenuExplore"<<endl
+           <<menuCentroPekemon<< "MenuCentroPekemon"<<endl
            <<menuExit << " Salir"<<endl;
         cin>>opc;
         switch (opc) {
@@ -380,6 +504,9 @@ void Player::menu()
             break;
         case menuExplore:
             menuExploreF();
+            break;
+        case menuCentroPekemon:
+            pekemonCentroMenu();
             break;
         case menuExit:
             cout<<"Gracias"<<endl;
@@ -615,6 +742,9 @@ void Player::showBackpack()
 void Player::guardar()
 {
     deleteAllP();
+    string file = "./Pekemones/"+getNombre();
+    mkdir(file.c_str());
+
     ofstream archivo("./Pekemones/"+getNombre()+".txt", ios::app);
 
     if(!archivo.is_open()){
@@ -630,6 +760,7 @@ void Player::guardar()
         it = pekemones.begin();
         while(i!=pekemones.size()){
             archivo << *it;
+            it->guardar(getNombre());
             it++;
             i++;
         }
@@ -650,11 +781,29 @@ void Player::deleteAll(){
 
 void Player::deleteAllP()
 {
+    deleteAllMovesFolders();
     string file="./Pekemones/";
     file.append(nombre);
+    rmdir(file.c_str());
     file.append(".txt");
     const char *c = file.c_str();
     remove(c);
+}
+
+void Player::deleteAllMovesFolders()
+{
+    string dir="./Pekemones/"+getNombre();
+    DIR *theFolder = opendir(dir.c_str());
+        struct dirent *next_file;
+        char filepath[256];
+
+        while ((next_file = readdir(theFolder)) != NULL)
+        {
+         // build the path for each file in the folder
+         sprintf(filepath, "%s/%s", dir.c_str(), next_file->d_name);
+         remove(filepath);
+        }
+        closedir(theFolder);
 }
 
 void Player::guardarBackpack()

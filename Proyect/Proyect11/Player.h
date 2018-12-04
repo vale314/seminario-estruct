@@ -14,6 +14,9 @@
 #include <dirent.h>
 #include <cstdlib>
 #include <ctime>
+#include <math.h>
+#include <windows.h>
+#include <conio.h>
 
 using namespace  std;
 
@@ -38,6 +41,7 @@ private:
         menuPekemones,
         menuTienda,
         menuExplore,
+        menuCentroPekemon,
         menuExit
     };
     enum{
@@ -55,10 +59,11 @@ private:
     };
 
     enum{
-      menuEncuentroPelea=1,
+      menuEncuentroCambiar=1,
       menuEncuentroItem,
-      menuEncuentroCambiar,
-      menuEncuentroRun
+      menuEncuentroRun,
+      menuEncuentroPelea
+
     };
 
     enum{
@@ -110,6 +115,7 @@ public:
     void guardarBackpack();
     void deleteAll();
     void deleteAllP();
+    void deleteAllMovesFolders();
     void cargar();
     void actualizarPlayer();
     void cargarTienda();
@@ -122,7 +128,11 @@ public:
     int RandInt (int min, int max);
     void exploreEncuentro();
 
-    void encuentroPelea();
+    bool encuentroPelea();
+    void encuentroGanaste();
+    bool validarHpEnemigo();
+    bool validarHpTu();
+    bool validarWin();
 
     void encuentroItem();
     int returnNameItem(string name);
@@ -132,8 +142,10 @@ public:
     void usarProtein();
     bool usarBall(int opc);
 
-    void encuentroCambiar();
+    bool encuentroCambiar();
     void encuentroRun();
 
+    void pekemonCentroMenu();
+    void pekemonCentroRecargarTodo();
 };
 #endif // PLAYER_H

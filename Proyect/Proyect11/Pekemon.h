@@ -63,10 +63,11 @@ public:
     string returnTypes();
 
     void getMenu();
-
     void setTipo(const types &value);
-
     Pekemon& operator= (const Pekemon &pekemon);
+
+
+    void guardar(string);
 
 private:
 

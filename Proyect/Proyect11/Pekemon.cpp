@@ -304,6 +304,28 @@ Pekemon &Pekemon::operator=(const Pekemon &pekemon)
     return *this;
 }
 
+void Pekemon::guardar(string nombre)
+{
+    size_t  i=0;
+    it = moves.begin();
+    if(moves.empty())
+        cout<<"La Lista Esta Vacia"<<endl;
+    if(moves.size()>0){
+        while(i!=moves.size()){
+            ofstream archivo("./Pekemones/"+nombre+"/"+it->getName()+".txt", ios::app);
+
+            if(!archivo.is_open()){
+                cout << "No se pudo abrir el archivo" << endl;
+                return;
+            }
+
+            archivo << *it;
+            it++;
+            i++;
+        }
+    }
+}
+
 ostream& operator <<(ostream& os, const Pekemon& obj){
     os << obj.name << "|"<<obj.tipo<<"|"<<obj.level<<"|"<<obj.hp<<"|"<<obj.maxHp<<"|"<<obj.attack<<"|"<<obj.experience<<endl;
     return os;
