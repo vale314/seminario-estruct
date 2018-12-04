@@ -198,6 +198,7 @@ void Pekemon::llenarMovimientos()
       stringstream stream(linea);
       getline(stream,aux,' ');
       Move moveAux(aux,10,10);
+      movesNames.push_back(moveAux.getName());
       moves.push_front(moveAux);
   }
 }
@@ -306,6 +307,7 @@ Pekemon &Pekemon::operator=(const Pekemon &pekemon)
 
 void Pekemon::guardar(string nombre)
 {
+    guardarNombres(nombre);
     size_t  i=0;
     it = moves.begin();
     if(moves.empty())
@@ -321,6 +323,84 @@ void Pekemon::guardar(string nombre)
 
             archivo << *it;
             it++;
+            i++;
+        }
+    }
+}
+
+void Pekemon::guardarNombres(string nombre)
+{
+    size_t i=0;
+    itMovN=movesNames.begin();
+
+    if(movesNames.empty())
+        throw invalid_argument ("Esta Vacia Vector");
+    if(movesNames.size()>0){
+        while(i!=movesNames.size()){
+            ofstream archivo("./Pekemones/"+nombre+"/nombres.txt", ios::app);
+
+            if(!archivo.is_open()){
+                cout << "No se pudo abrir el archivo" << endl;
+                return;
+            }
+            if(itMovN==movesNames.end()){
+                archivo << *itMovN<<endl;
+                archivo.close();
+            }else{
+                archivo << *itMovN<<"|";
+                archivo.close();
+            }
+
+           itMovN++;
+           i++;
+        }
+    }
+}
+void Pekemon::leerString(const string &linea)
+{
+    string aux;
+    stringstream stream(linea);
+    do{
+        getline(stream,aux, '|');
+        movesNames.push_back(aux);
+    }while(!aux.empty());
+}
+
+void Pekemon::cargarNombres(string nombre)
+{
+    const string folder = "./Pekemones/"+nombre+"/nombres.txt";
+    ifstream archivo(folder);
+    string linea;
+    if(!archivo.is_open()){
+        cout <<" No se pudo abrir el archivo";
+        return;
+    }
+    while(getline(archivo,linea)){
+        string aux;
+        stringstream stream(linea);
+        leerString(linea);
+    }
+}
+
+void Pekemon::cargar(string nombre)
+{
+    cargarNombres(nombre);
+    size_t  i=0;
+    itMovN = movesNames.begin();
+    if(movesNames.empty())
+        cout<<"La Lista Esta Vacia"<<endl;
+    if(movesNames.size()>0){
+        while(i!=movesNames.size()){
+            ifstream archivo("./Pekemones/"+nombre+"/"+*itMovN+".txt");
+            string linea;
+            if(!archivo.is_open()){
+                return;
+            }
+            while(getline(archivo,linea)){
+                Move s(linea);
+                moves.push_back(s);
+            }
+            itMovN++;
             i++;
         }
     }

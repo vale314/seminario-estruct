@@ -68,6 +68,11 @@ public:
 
 
     void guardar(string);
+    void guardarNombres(string);
+    void cargar(string);
+    void cargarNombres(string);
+    void leerString(const string &);
+
 
 private:
 
@@ -80,6 +85,8 @@ private:
     unsigned int experience;
     list<Move> moves;
     list<Move>::iterator it;
+    list<string> movesNames;
+    list<string>::iterator itMovN;
     friend ostream& operator <<(ostream& os, const Pekemon& obj);
 
 };

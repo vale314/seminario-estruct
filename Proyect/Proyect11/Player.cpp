@@ -54,8 +54,7 @@ void Player::cargar()
         }
         while(getline(archivo,linea)){
             Pekemon s(linea);
-
-
+            s.cargar(getNombre());
             pekemones.push_back(s);
         }
 
@@ -184,6 +183,7 @@ void Player::exploreEncuentro()
     bool cambio;
     cambio=true;
     do{
+
         tienesVida=validarHpTu();
         if(!ocultar&&tienesVida){
            cout<<"Cambiar Pekemon: "<<menuEncuentroCambiar<<endl
@@ -482,6 +482,7 @@ void Player::menu()
     int opc;
     int iPek;
     do{
+        guardar();
         system("cls");
         cout<<"\t\t\tMenu Player"<< endl;
         cout<<menuInfo<<" MenuInfo"<<endl

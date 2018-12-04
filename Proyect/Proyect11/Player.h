@@ -116,6 +116,7 @@ public:
     void deleteAll();
     void deleteAllP();
     void deleteAllMovesFolders();
+    void leerString(const string &);
     void cargar();
     void actualizarPlayer();
     void cargarTienda();

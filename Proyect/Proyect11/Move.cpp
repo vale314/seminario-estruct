@@ -7,6 +7,20 @@ Move::Move(string nameV,unsigned int maxV,unsigned int availableV)
     available=availableV;
 }
 
+Move::Move(const string &linea)
+{
+    string aux;
+    stringstream stream(linea);
+
+    getline(stream,aux, '|');
+    setName(aux);
+    getline(stream,aux, '|');
+    setMax(stoi(aux));
+    getline(stream,aux, '|');
+    setAvailable(stoi(aux));
+
+}
+
 void Move::showMoves()
 {
     cout<<"name: "<<name<<endl
@@ -27,6 +41,21 @@ unsigned int Move::getMax() const
 unsigned int Move::getAvailable() const
 {
     return available;
+}
+
+void Move::setName(const string &value)
+{
+    name = value;
+}
+
+void Move::setMax(unsigned int value)
+{
+    max = value;
+}
+
+void Move::setAvailable(unsigned int value)
+{
+    available = value;
 }
 
 
